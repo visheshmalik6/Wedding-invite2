@@ -19,16 +19,25 @@
     :root {
       --cream: #fdf8f3;
       --dark-cream: #f5ede3;
+      --light-cream: #fffcf7;
       --gold: #d4af37;
-      --light-gold: #e8d5a0;
+      --light-gold: #f0d98d;
       --bronze: #c9a961;
       --deep-gold: #b8941f;
       --maroon: #8b1538;
+      --deep-maroon: #6b0f28;
       --brown: #6b4423;
+      --dark-brown: #4a2f18;
       --orange: #ff6b35;
+      --coral: #ff8c5a;
+      --rose-gold: #b76e79;
+      --burgundy: #800020;
+      --sage: #9ca986;
       --soft-shadow: 0 4px 20px rgba(107, 68, 35, 0.08);
       --medium-shadow: 0 8px 30px rgba(107, 68, 35, 0.12);
       --strong-shadow: 0 12px 40px rgba(107, 68, 35, 0.15);
+      --gold-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+      --maroon-shadow: 0 4px 20px rgba(139, 21, 56, 0.25);
     }
 
     /* Mobile-first base font size */
@@ -87,11 +96,11 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(253, 248, 243, 0.1) 0%,
-        rgba(253, 248, 243, 0.25) 50%,
-        rgba(253, 248, 243, 0.4) 100%
+      background: radial-gradient(
+        ellipse at center,
+        rgba(253, 248, 243, 0.05) 0%,
+        rgba(253, 248, 243, 0.2) 40%,
+        rgba(253, 248, 243, 0.35) 100%
       );
       pointer-events: none;
     }
@@ -102,20 +111,25 @@
       position: absolute;
       inset: 0;
       background: radial-gradient(
-        circle at 50% 50%,
-        transparent 0%,
-        rgba(139, 21, 56, 0.03) 100%
+        circle at 30% 50%,
+        rgba(139, 21, 56, 0.02) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 70% 50%,
+        rgba(212, 175, 55, 0.03) 0%,
+        transparent 50%
       );
       pointer-events: none;
-      animation: breathe 6s ease-in-out infinite;
+      animation: breathe 8s ease-in-out infinite;
     }
 
     @keyframes breathe {
       0%, 100% {
-        opacity: 0.5;
+        opacity: 0.6;
       }
       50% {
-        opacity: 0.8;
+        opacity: 1;
       }
     }
 
@@ -125,15 +139,20 @@
       text-align: center;
       max-width: 90%;
       animation: fadeInUp 1.2s ease-out;
-      background: rgba(253, 248, 243, 0.25);
+      background: linear-gradient(
+        135deg,
+        rgba(253, 248, 243, 0.3) 0%,
+        rgba(255, 252, 247, 0.25) 100%
+      );
       backdrop-filter: blur(3px);
       -webkit-backdrop-filter: blur(3px);
       padding: 2rem 1.5rem;
       border-radius: 20px;
-      border: 1px solid rgba(212, 175, 55, 0.25);
+      border: 2px solid rgba(212, 175, 55, 0.4);
       box-shadow: 
-        0 8px 32px rgba(107, 68, 35, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        0 8px 32px rgba(107, 68, 35, 0.12),
+        0 0 0 1px rgba(212, 175, 55, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
     }
 
     @media (min-width: 768px) {
@@ -142,6 +161,7 @@
         padding: 3rem 2.5rem;
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(4px);
+        border: 2px solid rgba(212, 175, 55, 0.5);
       }
     }
 
@@ -214,10 +234,13 @@
     .wedding-title {
       font-family: 'Great Vibes', cursive;
       font-size: 3.5rem;
-      color: var(--maroon);
+      color: var(--deep-maroon);
       margin-bottom: 1rem;
-      text-shadow: 2px 2px 6px rgba(139, 21, 56, 0.2);
+      text-shadow: 
+        2px 2px 4px rgba(139, 21, 56, 0.3),
+        0 0 20px rgba(212, 175, 55, 0.2);
       line-height: 1.2;
+      filter: drop-shadow(0 2px 8px rgba(139, 21, 56, 0.2));
     }
 
     @media (min-width: 480px) {
@@ -433,9 +456,10 @@
       font-family: 'Cinzel', serif;
       font-size: 2rem;
       text-align: center;
-      color: var(--maroon);
+      color: var(--deep-maroon);
       margin-bottom: 2rem;
       position: relative;
+      text-shadow: 0 2px 4px rgba(107, 21, 40, 0.1);
     }
 
     @media (min-width: 768px) {
@@ -464,8 +488,8 @@
     .invitation-message {
       background: linear-gradient(
         135deg,
-        rgba(245, 237, 227, 0.8) 0%,
-        rgba(253, 248, 243, 0.7) 100%
+        rgba(245, 237, 227, 0.9) 0%,
+        rgba(255, 252, 247, 0.85) 100%
       );
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -473,11 +497,12 @@
       border-radius: 15px;
       box-shadow: 
         var(--medium-shadow),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        0 0 0 1px rgba(212, 175, 55, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
       text-align: center;
       margin: 2rem auto;
       max-width: 100%;
-      border: 2px solid rgba(212, 175, 55, 0.3);
+      border: 2px solid rgba(212, 175, 55, 0.4);
       position: relative;
       overflow: hidden;
     }
@@ -493,10 +518,10 @@
       background: linear-gradient(
         45deg,
         transparent 30%,
-        rgba(212, 175, 55, 0.1) 50%,
+        rgba(212, 175, 55, 0.15) 50%,
         transparent 70%
       );
-      animation: shimmer 6s linear infinite;
+      animation: shimmer 8s linear infinite;
       pointer-events: none;
     }
 
@@ -515,7 +540,7 @@
         border-radius: 20px;
         max-width: 800px;
         margin: 3rem auto;
-        border: 3px solid rgba(212, 175, 55, 0.3);
+        border: 3px solid rgba(212, 175, 55, 0.4);
       }
     }
 
@@ -590,12 +615,17 @@
     }
 
     .event-card {
-      background: white;
+      background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        rgba(255, 252, 247, 0.95) 100%
+      );
       border-radius: 12px;
       padding: 2rem 1.5rem;
       box-shadow: 
         var(--soft-shadow),
-        0 1px 3px rgba(107, 68, 35, 0.06);
+        0 1px 3px rgba(107, 68, 35, 0.06),
+        0 0 0 1px rgba(212, 175, 55, 0.1);
       border-top: 4px solid var(--gold);
       position: relative;
       overflow: hidden;
@@ -619,12 +649,14 @@
       height: 4px;
       background: linear-gradient(
         90deg,
-        var(--gold) 0%,
+        var(--deep-gold) 0%,
+        var(--gold) 25%,
         var(--orange) 50%,
-        var(--maroon) 100%
+        var(--maroon) 75%,
+        var(--burgundy) 100%
       );
       background-size: 200% 100%;
-      animation: gradientFlow 4s ease-in-out infinite;
+      animation: gradientFlow 6s ease-in-out infinite;
     }
 
     @keyframes gradientFlow {
@@ -651,10 +683,11 @@
 
     @media (min-width: 768px) {
       .event-card:hover {
-        transform: translateY(-8px);
+        transform: translateY(-8px) scale(1.01);
         box-shadow: 
           var(--strong-shadow),
-          0 4px 8px rgba(212, 175, 55, 0.1);
+          0 4px 8px rgba(212, 175, 55, 0.15),
+          0 0 0 1px rgba(212, 175, 55, 0.2);
         border-top-color: var(--orange);
       }
     }
@@ -664,7 +697,7 @@
       font-family: 'Cinzel', serif;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--deep-maroon);
       border: 1.5px solid var(--gold);
       padding: 0.5rem 1.2rem;
       border-radius: 20px;
@@ -673,10 +706,13 @@
       font-weight: 600;
       background: linear-gradient(
         135deg,
-        rgba(212, 175, 55, 0.05),
-        rgba(212, 175, 55, 0.1)
+        rgba(212, 175, 55, 0.08),
+        rgba(240, 217, 141, 0.12)
       );
-      box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+      box-shadow: 
+        0 2px 8px rgba(212, 175, 55, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
     }
 
     @media (min-width: 768px) {
@@ -805,8 +841,8 @@
     .venue-card {
       background: linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.9) 0%,
-        rgba(245, 237, 227, 0.8) 100%
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(255, 252, 247, 0.9) 100%
       );
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -815,8 +851,9 @@
       box-shadow: 
         var(--soft-shadow),
         0 1px 3px rgba(107, 68, 35, 0.06),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
-      border: 2px solid rgba(212, 175, 55, 0.3);
+        0 0 0 1px rgba(212, 175, 55, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      border: 2px solid rgba(212, 175, 55, 0.35);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -836,8 +873,9 @@
         transform: translateY(-5px);
         box-shadow: 
           var(--medium-shadow),
-          0 4px 8px rgba(212, 175, 55, 0.1),
-          inset 0 1px 0 rgba(255, 255, 255, 0.6);
+          0 4px 8px rgba(212, 175, 55, 0.2),
+          0 0 0 1px rgba(212, 175, 55, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.7);
         border-color: var(--gold);
       }
     }
@@ -887,14 +925,42 @@
       }
     }
 
+    /* Mini Map */
+    .mini-map {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+      border: 2px solid rgba(212, 175, 55, 0.3);
+      box-shadow: 
+        var(--soft-shadow),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    }
+
+    @media (min-width: 768px) {
+      .mini-map {
+        height: 250px;
+        border: 2px solid rgba(212, 175, 55, 0.4);
+      }
+    }
+
+    .mini-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
     /* Buttons - Mobile First */
     .map-button {
       display: block;
       width: 100%;
       background: linear-gradient(
         135deg,
-        var(--maroon) 0%,
-        #a42147 50%,
+        var(--deep-maroon) 0%,
+        var(--maroon) 30%,
+        var(--rose-gold) 60%,
         var(--orange) 100%
       );
       background-size: 200% auto;
@@ -906,12 +972,12 @@
       font-weight: 600;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: 
-        0 4px 15px rgba(139, 21, 56, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        var(--maroon-shadow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
       text-align: center;
       position: relative;
       overflow: hidden;
-      animation: subtleGradient 3s ease-in-out infinite;
+      animation: subtleGradient 4s ease-in-out infinite;
     }
 
     @keyframes subtleGradient {
@@ -969,15 +1035,229 @@
 
     /* Contact Section */
     .contact-section {
-      background: linear-gradient(135deg, var(--maroon) 0%, var(--brown) 100%);
+      background: linear-gradient(
+        135deg,
+        var(--deep-maroon) 0%,
+        var(--maroon) 30%,
+        var(--burgundy) 60%,
+        var(--dark-brown) 100%
+      );
       color: white;
       text-align: center;
       padding: 3rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at 20% 50%,
+        rgba(212, 175, 55, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 50%,
+        rgba(255, 107, 53, 0.08) 0%,
+        transparent 50%
+      );
+      pointer-events: none;
+      animation: breathe 10s ease-in-out infinite;
     }
 
     @media (min-width: 768px) {
       .contact-section {
         padding: 5rem 2rem;
+      }
+    }
+
+    /* Photo Gallery Section */
+    .gallery-section {
+      background: linear-gradient(
+        135deg,
+        rgba(245, 237, 227, 0.6) 0%,
+        var(--cream) 30%,
+        var(--light-cream) 50%,
+        var(--cream) 70%,
+        rgba(245, 237, 227, 0.6) 100%
+      );
+      padding: 4rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .gallery-section {
+        padding: 6rem 2rem;
+      }
+    }
+
+    .gallery-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--gold) 20%,
+        var(--light-gold) 50%,
+        var(--gold) 80%,
+        transparent
+      );
+      box-shadow: 0 1px 3px rgba(212, 175, 55, 0.3);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-top: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 
+        var(--soft-shadow),
+        0 0 0 1px rgba(212, 175, 55, 0.15);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(139, 21, 56, 0.15),
+        rgba(212, 175, 55, 0.15)
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+
+    .gallery-item:active {
+      transform: scale(0.95);
+    }
+
+    @media (min-width: 768px) {
+      .gallery-item:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 
+          var(--strong-shadow),
+          0 0 0 2px rgba(212, 175, 55, 0.3);
+        border-color: rgba(212, 175, 55, 0.4);
+      }
+
+      .gallery-item:hover::before {
+        opacity: 1;
+      }
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    @media (min-width: 768px) {
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+    }
+
+    /* Featured large item */
+    .gallery-item.featured {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    @media (max-width: 767px) {
+      .gallery-item.featured {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+    }
+
+    /* Photo placeholder styling */
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        var(--dark-cream) 0%,
+        var(--cream) 50%,
+        var(--dark-cream) 100%
+      );
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--bronze);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .photo-placeholder::before {
+      content: '📷';
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.5;
+    }
+
+    @media (min-width: 768px) {
+      .photo-placeholder {
+        font-size: 1rem;
+      }
+
+      .photo-placeholder::before {
+        font-size: 3rem;
+      }
+    }
+
+    .gallery-message {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      color: var(--brown);
+      font-style: italic;
+      opacity: 0.8;
+    }
+
+    @media (min-width: 768px) {
+      .gallery-message {
+        font-size: 1.2rem;
+        margin-top: 3rem;
       }
     }
 
@@ -1263,7 +1543,7 @@
           </p>
           <div class="event-venue">
             <span class="venue-label">Venue:</span>
-            At Home
+            At Home - F-28b street no. 19 Mangal bazar laxmi nagar delhi 92
           </div>
         </div>
 
@@ -1279,7 +1559,7 @@
           </p>
           <div class="event-venue">
             <span class="venue-label">Venue:</span>
-            At Home
+            At Home - F-28b street no. 19 Mangal bazar laxmi nagar delhi 92
           </div>
         </div>
 
@@ -1318,6 +1598,17 @@
             Vishwas Nagar Extension, Shahdara<br>
             Delhi - 110032
           </p>
+          
+          <!-- Mini Map -->
+          <div class="mini-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.518967893941!2d77.29346931508234!3d28.695304982398973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfb6f8b5b6b6b%3A0x6b6b6b6b6b6b6b6b!2sGrand%20Amara%20Banquets!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Grand Amara Banquets Location"
+            ></iframe>
+          </div>
+          
           <a href="https://maps.app.goo.gl/idTi5HumoQHEAWuJ9" target="_blank" class="map-button">
             Open in Google Maps →
           </a>
@@ -1331,12 +1622,83 @@
             F-20, Dwarka Link Rd, Samalka<br>
             New Delhi, Delhi - 110061
           </p>
+          
+          <!-- Mini Map -->
+          <div class="mini-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14040.924892837142!2d77.05767951542969!3d28.542418779843644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d200f2c5154e5%3A0x2f7c135dd54b6e62!2sAmbria%20Pushpanjali!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ambria Pushpanjali Location"
+            ></iframe>
+          </div>
+          
           <a href="https://maps.app.goo.gl/XoT3FZ5qPkFq1vQa6" target="_blank" class="map-button">
             Open in Google Maps →
           </a>
         </div>
       </div>
     </section>
+
+    <!-- Photo Gallery Section 
+    <section class="section gallery-section" id="gallery">
+      <h2 class="section-title">Pre-Wedding Memories</h2>
+      
+      <div class="gallery-grid">
+        
+        <div class="gallery-item featured">
+          <div class="photo-placeholder">
+            Your beautiful<br>pre-wedding photos<br>will appear here
+          </div>
+        </div>
+        
+       
+        <div class="gallery-item">
+          <div class="photo-placeholder">
+            Photo
+          </div>
+        </div>
+        
+        
+        <div class="gallery-item">
+          <div class="photo-placeholder">
+            Photo
+          </div>
+        </div>
+        
+        
+        <div class="gallery-item">
+          <div class="photo-placeholder">
+            Photo
+          </div>
+        </div>
+        
+        
+        <div class="gallery-item">
+          <div class="photo-placeholder">
+            Photo
+          </div>
+        </div>
+        
+        
+        <div class="gallery-item">
+          <div class="photo-placeholder">
+            Photo
+          </div>
+        </div>
+        
+        
+        <div class="gallery-item">
+          <div class="photo-placeholder">
+            Photo
+          </div>
+        </div>
+      </div>
+      
+      <p class="gallery-message">
+        "Every love story is beautiful, but ours is my favorite"
+      </p>
+    </section>-->
 
     <!-- Contact Section -->
     <section class="contact-section">
@@ -1387,7 +1749,7 @@
       }
     });
 
-    // Intersection Observer for venue cards only
+    // Intersection Observer for venue cards and gallery items
     const observerOptions = {
       threshold: 0.15,
       rootMargin: '0px 0px -50px 0px'
@@ -1402,12 +1764,20 @@
       });
     }, observerOptions);
 
-    // Only observe venue cards for fade-in effect
+    // Observe venue cards for fade-in effect
     document.querySelectorAll('.venue-card').forEach(card => {
       card.style.opacity = '0';
       card.style.transform = 'translateY(30px)';
       card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
       observer.observe(card);
+    });
+
+    // Observe gallery items with staggered delay
+    document.querySelectorAll('.gallery-item').forEach((item, index) => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(30px)';
+      item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+      observer.observe(item);
     });
   </script>
 </body>
